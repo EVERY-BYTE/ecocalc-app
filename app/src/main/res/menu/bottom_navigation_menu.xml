@@ -6,10 +6,10 @@
         android:icon="@drawable/ic_home" />
     <item
         android:id="@+id/nav_profile"
-        android:title="@string/app"
-        android:icon="@drawable/ic_app" />
-    <item
-        android:id="@+id/nav_settings"
         android:title="@string/Profile"
         android:icon="@drawable/ic_person" />
+<!--    <item-->
+<!--        android:id="@+id/nav_settings"-->
+<!--        android:title="@string/Profile"-->
+<!--        android:icon="@drawable/ic_person" />-->
 </menu>

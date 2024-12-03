@@ -11,25 +11,6 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/footprint_calculator"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Description -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/footprint_description"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:layout_marginBottom="24dp" />
-
         <!-- Input Section -->
         <LinearLayout
             android:layout_width="match_parent"
