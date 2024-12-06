@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -12,8 +13,8 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:contentDescription="@string/todo"
             android:src="@drawable/ecocalc_logo"
             android:layout_marginBottom="20dp" />
@@ -21,25 +22,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hi"
+            android:text="register"
             android:textSize="24sp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_to_ecocalc"
-            android:textSize="18sp"
-            android:layout_marginBottom="20dp"
-            android:textColor="@android:color/black" />
-
-        <!-- Email Field with Icon -->
+        <!-- Full Name Field -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            app:startIconDrawable="@drawable/ic_email"> <!-- Replace with your email icon -->
+            app:startIconDrawable="@drawable/ic_person"> <!-- Replace with your person icon -->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="full name"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -49,12 +57,12 @@
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password Field with Icon -->
+        <!-- Password Field -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            app:startIconDrawable="@drawable/ic_password"> <!-- Replace with your password icon -->
+            app:startIconDrawable="@drawable/ic_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -64,30 +72,13 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/forget_password"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/primary_color"
-            android:gravity="end" />
-
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="register"
             android:backgroundTint="@color/primary_color"
             android:textColor="@android:color/white"
             android:layout_marginTop="20dp" />
-
-        <TextView
-            android:id="@+id/tvRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/don_t_have_an_account_register"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:textColor="@color/primary_color" />
     </LinearLayout>
 </ScrollView>

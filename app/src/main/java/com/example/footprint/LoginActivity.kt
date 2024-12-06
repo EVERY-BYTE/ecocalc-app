@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -16,7 +17,9 @@ class LoginActivity : AppCompatActivity() {
         val emailEditText: EditText = findViewById(R.id.etEmail)
         val passwordEditText: EditText = findViewById(R.id.etPassword)
         val loginButton: Button = findViewById(R.id.btnLogin)
+        val registerTextView: TextView = findViewById(R.id.tvRegister)
 
+        // Login button logic
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -27,13 +30,18 @@ class LoginActivity : AppCompatActivity() {
                 editor.putBoolean("isLoggedIn", true)
                 editor.apply()
 
-
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
                 Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Navigate to RegisterActivity when "Register" is clicked
+        registerTextView.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }

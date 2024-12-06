@@ -26,6 +26,7 @@
         <!-- Other activities -->
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
     </application>
 
 </manifest>
