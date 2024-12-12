@@ -36,4 +36,6 @@
     <string name="calculate">Calculate</string>
     <string name="result_placeholder">Your footprint result will appear here.</string>
     <string name="result_format">Your carbon footprint is: %.2f</string>
+    <string name="confirm_password">confirm_password</string>
+    <string name="confirm_passwords">confirm password</string>
 </resources>

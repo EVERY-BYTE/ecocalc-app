@@ -1,4 +1,4 @@
-package com.example.footprint
+package com.example.footprint.views.fragments
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,6 +9,8 @@ import android.widget.LinearLayout
 import android.widget.Switch
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.footprint.R
+import com.example.footprint.views.LoginActivity
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

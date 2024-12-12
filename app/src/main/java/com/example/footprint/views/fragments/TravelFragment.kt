@@ -1,10 +1,11 @@
-package com.example.footprint
+package com.example.footprint.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.footprint.R
 
 class TravelFragment : Fragment() {
     override fun onCreateView(

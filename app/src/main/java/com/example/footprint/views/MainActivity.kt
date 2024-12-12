@@ -1,4 +1,4 @@
-package com.example.footprint
+package com.example.footprint.views
 
 import android.content.Intent
 import android.content.SharedPreferences

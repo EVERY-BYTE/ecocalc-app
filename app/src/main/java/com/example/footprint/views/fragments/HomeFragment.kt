@@ -1,4 +1,4 @@
-package com.example.footprint
+package com.example.footprint.views.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.footprint.R
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

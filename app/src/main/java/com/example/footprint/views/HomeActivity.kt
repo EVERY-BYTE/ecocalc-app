@@ -1,13 +1,17 @@
-package com.example.footprint
+package com.example.footprint.views
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.footprint.R
+import com.example.footprint.views.fragments.HomeFragment
+import com.example.footprint.views.fragments.ProfileFragment
+import com.example.footprint.views.fragments.ViewPagerAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.core.content.ContextCompat
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -18,7 +22,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        // Initialize views
         viewPager = findViewById(R.id.viewPager)
         tabLayout = findViewById(R.id.tabLayout)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -30,34 +33,30 @@ class HomeActivity : AppCompatActivity() {
         // Tab layout titles
         val tabTitles = arrayOf("Personal", "Travel", "Waste", "Energy")
 
-        // Attach ViewPager to TabLayout using TabLayoutMediator
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = tabTitles[position]
             tab.setIcon(getTabIcon(position)) // Set the tab icons here
         }.attach()
 
-        // Set the first tab as selected initially
-        viewPager.setCurrentItem(0, false) // Make sure to set the first tab as selected immediately
+        // Set default tab
+        viewPager.setCurrentItem(0, false)
 
-        // Handle tab selected state to change icon color
+        // Tab selection listener
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                // Change color of active tab
                 tab?.icon?.mutate()?.setTint(
                     ContextCompat.getColor(this@HomeActivity, R.color.colorPrimary)
                 )
+                viewPager.currentItem = tab?.position ?: 0
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                // Change color of unselected tab
                 tab?.icon?.mutate()?.setTint(
                     ContextCompat.getColor(this@HomeActivity, R.color.colorInactive)
                 )
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                // Optional: Handle re-selection of tab
-            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
 
         // Bottom Navigation Listener
@@ -66,16 +65,11 @@ class HomeActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     loadFragment(HomeFragment())
                     tabLayout.visibility = android.view.View.VISIBLE // Show tab only for HomeFragment
-                    viewPager.currentItem = 0 // Ensure the first tab is selected when navigating to Home
                 }
                 R.id.nav_profile -> {
                     loadFragment(ProfileFragment())
                     tabLayout.visibility = android.view.View.GONE // Hide tab for other fragments
                 }
-//                R.id.nav_settings -> {
-//                    loadFragment(ProfileFragment())
-//                    tabLayout.visibility = android.view.View.GONE // Hide tab for other fragments
-//                }
             }
             true
         }
@@ -89,7 +83,6 @@ class HomeActivity : AppCompatActivity() {
     private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)  // Optional: for back navigation
         transaction.commit()
     }
 
